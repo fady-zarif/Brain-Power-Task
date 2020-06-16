@@ -1,4 +1,6 @@
-package com.fady.brain_power_task.adapter
+package com.fady.brain_power_task
 
-class AthleteRepository {
+class AthleteRepository() {
+
+
 }
