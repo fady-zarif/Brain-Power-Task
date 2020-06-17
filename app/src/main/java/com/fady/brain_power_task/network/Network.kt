@@ -8,7 +8,6 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-
 private val sLogLevel = if (BuildConfig.DEBUG)
     HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
 
@@ -27,11 +26,9 @@ private fun retrofitClient(baseUrl: String, httpClient: OkHttpClient): Retrofit 
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-
 private fun setTimeOutToOkHttpClient(okHttpClientBuilder: OkHttpClient.Builder) =
     okHttpClientBuilder.apply {
         readTimeout(30L, TimeUnit.SECONDS)
         connectTimeout(30L, TimeUnit.SECONDS)
         writeTimeout(30L, TimeUnit.SECONDS)
     }
-

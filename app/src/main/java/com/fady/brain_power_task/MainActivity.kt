@@ -41,8 +41,6 @@ class MainActivity : AppCompatActivity() {
             // TODO: 6/16/20  click to bottom sheet
         }
         rvAthletes.adapter = rvAdapter
-
-
     }
 
     private fun athletesObserver(athletesList: List<Athlete>) {

@@ -46,9 +46,10 @@ class AthletesAdapter(private val interaction: (athlete: Athlete, pos: Int) -> U
     ) :
         RecyclerView.ViewHolder(athleteItemView.root) {
         fun bind(item: Athlete) {
-            if (!item.image.isNullOrEmpty()) Glide.with(athleteItemView.imgAthlete).load(item.image)
-                .placeholder(R.drawable.loading_image).into(athleteItemView.imgAthlete)
-            else {
+            if (!item.image.isNullOrEmpty()) {
+                Glide.with(athleteItemView.imgAthlete).load(item.image)
+                    .placeholder(R.drawable.loading_image).into(athleteItemView.imgAthlete)
+            } else {
                 athleteItemView.tvName.text = item.name.substring(0, 6)
                 athleteItemView.tvName.visibility = View.VISIBLE
             }

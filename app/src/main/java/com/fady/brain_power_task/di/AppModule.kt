@@ -18,17 +18,13 @@ object AppModule {
         fun getRetrofit(retrofit: Retrofit) =
             retrofit.create(RemoteApi::class.java)
 
-
         val remoteApi = getRetrofit(getRetrofitClient(baseUrl))
+
         single { remoteApi }
-
     }
-        val viewModule = module {
-            single { RemoteSourceImp(get()) }
-            single { AthleteRepository(get()) }
-            viewModel { MainActivityViewModel(get()) }
-        }
-
-
+    val viewModule = module {
+        single { RemoteSourceImp(get()) }
+        single { AthleteRepository(get()) }
+        viewModel { MainActivityViewModel(get()) }
     }
-
+}
