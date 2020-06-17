@@ -2,19 +2,38 @@
 <com.google.android.material.circularreveal.CircularRevealRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="10dp">
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="190dp"
-        android:layout_height="210dp"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="15dp">
+        android:layout_width="200dp"
+        android:layout_height="240dp"
+        android:padding="3dp"
+
+        app:cardCornerRadius="6dp"
+        app:cardElevation="2dp"
+        app:strokeColor="@android:color/darker_gray"
+        app:strokeWidth="1dp">
+
 
         <ImageView
             android:id="@+id/imgAthlete"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="2dp" />
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/not_available" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:text="Name"
+            android:visibility="gone"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
     </com.google.android.material.card.MaterialCardView>
 </com.google.android.material.circularreveal.CircularRevealRelativeLayout>

@@ -1,6 +1,7 @@
 package com.fady.brain_power_task
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.fady.brain_power_task.adapter.AthletesAdapter
 import com.fady.brain_power_task.model.Athlete
+import com.fady.brain_power_task.model.AthleteResponse
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -30,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         mainActivityViewModel.getShowLoadingLiveData()
             .observe(this, Observer { loadingObserver(it) })
 
-
+        mainActivityViewModel.getAthletes()
     }
 
     private fun initRecycler() {
@@ -53,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadingObserver(showLoading: Boolean) {
         pbloading.visibility = if (showLoading) View.VISIBLE else View.GONE
-        rvAthletes.visibility = if (showLoading) View.VISIBLE else View.GONE
+        rvAthletes.visibility = if (showLoading) View.GONE else View.VISIBLE
     }
 
 }

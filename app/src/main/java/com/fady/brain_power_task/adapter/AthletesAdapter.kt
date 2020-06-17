@@ -2,6 +2,7 @@ package com.fady.brain_power_task.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -29,9 +30,7 @@ class AthletesAdapter(private val interaction: (athlete: Athlete, pos: Int) -> U
         val itemView = AthleteItemViewBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
-        return AthletesViewHolder(
-            itemView
-        )
+        return AthletesViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: AthletesViewHolder, position: Int) {
@@ -41,7 +40,6 @@ class AthletesAdapter(private val interaction: (athlete: Athlete, pos: Int) -> U
         }
     }
 
-
     class AthletesViewHolder(
         private val
         athleteItemView: AthleteItemViewBinding
@@ -49,11 +47,11 @@ class AthletesAdapter(private val interaction: (athlete: Athlete, pos: Int) -> U
         RecyclerView.ViewHolder(athleteItemView.root) {
         fun bind(item: Athlete) {
             if (!item.image.isNullOrEmpty()) Glide.with(athleteItemView.imgAthlete).load(item.image)
-                .placeholder(
-                    R.drawable.loading_image
-                )
+                .placeholder(R.drawable.loading_image).into(athleteItemView.imgAthlete)
+            else {
+                athleteItemView.tvName.text = item.name.substring(0, 6)
+                athleteItemView.tvName.visibility = View.VISIBLE
+            }
         }
     }
-
-
 }
