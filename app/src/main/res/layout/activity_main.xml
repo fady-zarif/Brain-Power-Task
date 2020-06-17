@@ -14,10 +14,12 @@
         android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvAthletics"
+        android:id="@+id/rvAthletes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:itemCount="4" />
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/athlete_item_view" />
 
 
 </com.google.android.material.circularreveal.CircularRevealRelativeLayout>

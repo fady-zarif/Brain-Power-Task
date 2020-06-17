@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit
 
 private val sLogLevel = if (BuildConfig.DEBUG)
     HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
-//private const val baseUrl = "https://corona-virus-stats.herokuapp.com/api/v1/cases/"
 
 fun getRetrofitClient(baseUrl: String) = retrofitClient(baseUrl, okHttpClient(false))
 private fun getLogInterceptor() = HttpLoggingInterceptor().apply { level = sLogLevel }
@@ -26,7 +25,6 @@ private fun retrofitClient(baseUrl: String, httpClient: OkHttpClient): Retrofit 
         .baseUrl(baseUrl)
         .client(httpClient)
         .addConverterFactory(GsonConverterFactory.create())
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
 
 
@@ -36,3 +34,4 @@ private fun setTimeOutToOkHttpClient(okHttpClientBuilder: OkHttpClient.Builder) 
         connectTimeout(30L, TimeUnit.SECONDS)
         writeTimeout(30L, TimeUnit.SECONDS)
     }
+
