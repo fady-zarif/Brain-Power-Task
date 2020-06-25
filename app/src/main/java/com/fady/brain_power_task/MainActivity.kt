@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.fady.brain_power_task.adapter.AthletesAdapter
@@ -37,8 +38,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRecycler() {
         rvAthletes.layoutManager = GridLayoutManager(this, GRID_SPAN_COUNT)
-        rvAdapter = AthletesAdapter { _, _ ->
-            // TODO: 6/16/20  click to bottom sheet
+        rvAdapter = AthletesAdapter { athlete, _ ->
+            val bottomSheetView = BottomSheetView(athlete)
+            bottomSheetView.show(supportFragmentManager, null)
         }
         rvAthletes.adapter = rvAdapter
     }
